@@ -1,29 +1,27 @@
 package com.department.HR.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Employee_detail")
+@NamedQuery(name = "Employee.findEmployeeByDateOfJoining",
+        query = "select e from Employee e where e.dateOfJoining = ?1")
+
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name="FirstName", nullable = false)
     private String firstName;
 
-    @Column(name="LastName", nullable = false)
     private String lastName;
 
-    @Column(name="Designation", nullable = false)
     private String designation;
 
-    /*@Column(name="DateOfJoining", nullable = true)
-    @Temporal(value = TemporalType.DATE)
-    private Date dateOfJoining;*/
+    private LocalDate dateOfJoining;
 
-    @Column(name="Email", nullable = false)
     private String email;
 
     public int getId() {
@@ -66,6 +64,14 @@ public class Employee {
         this.email = email;
     }
 
+    public LocalDate getDateOfJoining() {
+        return dateOfJoining;
+    }
+
+    public void setDateOfJoining(LocalDate dateOfJoining) {
+        this.dateOfJoining = dateOfJoining;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -73,6 +79,7 @@ public class Employee {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", designation='" + designation + '\'' +
+                ", dateOfJoining=" + dateOfJoining +
                 ", email='" + email + '\'' +
                 '}';
     }
