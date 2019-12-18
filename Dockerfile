@@ -1,3 +1,5 @@
 FROM openjdk:8
-COPY /target/departments-0.0.1-SNAPSHOT.jar /departments-0.0.1-SNAPSHOT.jar
-CMD ["java", "-jar", "/departments-0.0.1-clSNAPSHOT.jar"]
+MAINTAINER Abinaya Balaji <abhinayabalaji90@gmail.com>
+ADD target/employee-dtls-mysql.jar employee-dtls-mysql.jar
+#EXPOSE 8085
+CMD ["java", "-jar", "employee-dtls-mysql.jar"]
