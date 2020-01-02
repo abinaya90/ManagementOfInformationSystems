@@ -32,16 +32,24 @@
         </rollingPolicy>
     </appender>
 
-    <!-- LOG everything at INFO level -->
-    <root level="info">
-        <appender-ref ref="RollingFile" />
-        <appender-ref ref="Console" />
-    </root>
+    <springProfile name="dev">
+        <!-- LOG everything at INFO level -->
+        <root level="debug">
+            <appender-ref ref="RollingFile" />
+            <appender-ref ref="Console" />
+        </root>
+        <!-- LOG "com.baeldung*" at TRACE level  -->
+        <logger name="com.department.HR" level="trace" additivity="false">
+            <appender-ref ref="RollingFile" />
+            <appender-ref ref="Console" />
+        </logger>
+    </springProfile>
 
-    <!-- LOG "com.baeldung*" at TRACE level  -->
-    <logger name="com.department.HR" level="trace" additivity="false">
-        <appender-ref ref="RollingFile" />
-        <appender-ref ref="Console" />
-    </logger>
+    <springProfile name="prod">
+        <root level="INFO">
+            <appender-ref ref="RollingFile" />
+            <appender-ref ref="Console" />
+        </root>
+    </springProfile>
 
 </configuration>
