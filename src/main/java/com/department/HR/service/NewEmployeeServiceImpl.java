@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -22,6 +21,6 @@ public class NewEmployeeServiceImpl implements NewEmployeeService{
     public List<Employee> listAllEmployeeJoining() {
         logger.debug("Inside ListOfAllEmployeeJoined");
         //return employeeDAO.findEmployeeByDateOfJoining(java.time.LocalDate.now());
-        return employeeDAO.findEmployeeByDateOfJoining(LocalDate.parse("2019-12-14"));
+        return employeeDAO.findEmployeeByDateOfJoining("2019-12-14");
     }
 }

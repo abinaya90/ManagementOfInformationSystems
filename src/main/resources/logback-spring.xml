@@ -39,7 +39,7 @@
             <appender-ref ref="Console" />
         </root>
         <!-- LOG "com.baeldung*" at TRACE level  -->
-        <logger name="com.department.HR" level="trace" additivity="false">
+        <logger name="com.department.HR" level="debug" additivity="false">
             <appender-ref ref="RollingFile" />
             <appender-ref ref="Console" />
         </logger>

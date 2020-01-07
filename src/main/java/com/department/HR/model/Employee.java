@@ -1,7 +1,6 @@
 package com.department.HR.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "Employee_detail")
@@ -20,7 +19,7 @@ public class Employee {
 
     private String designation;
 
-    private LocalDate dateOfJoining;
+    private String dateOfJoining;
 
     private String email;
 
@@ -64,11 +63,11 @@ public class Employee {
         this.email = email;
     }
 
-    public LocalDate getDateOfJoining() {
+    public String getDateOfJoining() {
         return dateOfJoining;
     }
 
-    public void setDateOfJoining(LocalDate dateOfJoining) {
+    public void setDateOfJoining(String dateOfJoining) {
         this.dateOfJoining = dateOfJoining;
     }
 
